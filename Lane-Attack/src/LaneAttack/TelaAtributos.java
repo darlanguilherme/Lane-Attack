@@ -54,10 +54,9 @@ public class TelaAtributos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
 
     private ActionListener btManager = event -> {
-        
         if (event.getSource().equals(jButton1)) {
-			
-	}
+
+        }
         if (imagemCavaleiro.isSelected()) {
             imagemFeiticeira.setSelected(false);
             imagemGoku.setSelected(false);
@@ -65,80 +64,15 @@ public class TelaAtributos extends javax.swing.JFrame {
             setPoints(1);
         }
         if (imagemFeiticeira.isSelected()) {
-            imagemCavaleiro.setSelected(false);
             imagemGoku.setSelected(false);
             assumirEstado(2);
             setPoints(2);
         }
         if (imagemGoku.isSelected()) {
-
-            imagemFeiticeira.setSelected(false);
-            imagemCavaleiro.setSelected(false);
             assumirEstado(3);
             setPoints(3);
         }
     };
-
-    public void assumirEstado(int cod) {
-        ImageIcon image = null;
-        if (cod == 1) {
-            image = new ImageIcon(getClass().getResource("/Imagenss/GuerreiroFrente1.png"));
-        }
-        if (cod == 2) {
-            image = new ImageIcon(getClass().getResource("/Imagenss/FeiticeiraFrente1.png"));
-        }
-        if (cod == 3) {
-            image = new ImageIcon(getClass().getResource("/Imagenss/GokuFrente1.png"));
-        }
-        jLabel5.setIcon(image);
-        jLabel13.setIcon(image);
-        jLabel7.setIcon(image);
-    }
-
-    public void setPoints(int cod) {
-        if (cod == 1) {
-            jLabelSTR.setText("+ 8");
-            jLabelDEF.setText("+ 7");
-            jLabelAGI.setText("+ 2");
-            jLabelSOR.setText("+ 1");
-            jLabelSTR2.setText("+ 8");
-            jLabelDEF2.setText("+ 7");
-            jLabelAGI2.setText("+ 2");
-            jLabelSOR2.setText("+ 1");
-            jLabelSTR3.setText("+ 8");
-            jLabelDEF3.setText("+ 7");
-            jLabelAGI3.setText("+ 2");
-            jLabelSOR3.setText("+ 1");
-        }
-        if (cod == 2) {
-            jLabelSTR.setText("+ 1");
-            jLabelDEF.setText("+ 1");
-            jLabelAGI.setText("+ 5");
-            jLabelSOR.setText("+ 11");
-            jLabelSTR2.setText("+ 1");
-            jLabelDEF2.setText("+ 1");
-            jLabelAGI2.setText("+ 5");
-            jLabelSOR2.setText("+ 11");
-            jLabelSTR3.setText("+ 1");
-            jLabelDEF3.setText("+ 1");
-            jLabelAGI3.setText("+ 5");
-            jLabelSOR3.setText("+ 11");
-        }
-        if (cod == 3) {
-            jLabelSTR.setText("+ 5");
-            jLabelDEF.setText("+ 2");
-            jLabelAGI.setText("+ 3");
-            jLabelSOR.setText("+ 8");
-            jLabelSTR2.setText("+ 5");
-            jLabelDEF2.setText("+ 2");
-            jLabelAGI2.setText("+ 3");
-            jLabelSOR2.setText("+ 8");
-            jLabelSTR3.setText("+ 5");
-            jLabelDEF3.setText("+ 2");
-            jLabelAGI3.setText("+ 3");
-            jLabelSOR3.setText("+ 8");
-        }
-    }
 
     public TelaAtributos() {
         initComponents();
@@ -502,4 +436,64 @@ public class TelaAtributos extends javax.swing.JFrame {
         pack();
     }
 
+    public void assumirEstado(int cod) {
+        ImageIcon image = null;
+        if (cod == 1) {
+            image = new ImageIcon(getClass().getResource("/Imagenss/GuerreiroFrente1.png"));
+        }
+        if (cod == 2) {
+            image = new ImageIcon(getClass().getResource("/Imagenss/FeiticeiraFrente1.png"));
+        }
+        if (cod == 3) {
+            image = new ImageIcon(getClass().getResource("/Imagenss/GokuFrente1.png"));
+        }
+        jLabel5.setIcon(image);
+        jLabel13.setIcon(image);
+        jLabel7.setIcon(image);
+    }
+
+    public void setPoints(int cod) {
+        if (cod == 1) {
+            jLabelSTR.setText("+ 8");
+            jLabelDEF.setText("+ 7");
+            jLabelAGI.setText("+ 2");
+            jLabelSOR.setText("+ 1");
+            jLabelSTR2.setText("+ 8");
+            jLabelDEF2.setText("+ 7");
+            jLabelAGI2.setText("+ 2");
+            jLabelSOR2.setText("+ 1");
+            jLabelSTR3.setText("+ 8");
+            jLabelDEF3.setText("+ 7");
+            jLabelAGI3.setText("+ 2");
+            jLabelSOR3.setText("+ 1");
+        }
+        if (cod == 2) {
+            jLabelSTR.setText("+ 1");
+            jLabelDEF.setText("+ 1");
+            jLabelAGI.setText("+ 5");
+            jLabelSOR.setText("+ 11");
+            jLabelSTR2.setText("+ 1");
+            jLabelDEF2.setText("+ 1");
+            jLabelAGI2.setText("+ 5");
+            jLabelSOR2.setText("+ 11");
+            jLabelSTR3.setText("+ 1");
+            jLabelDEF3.setText("+ 1");
+            jLabelAGI3.setText("+ 5");
+            jLabelSOR3.setText("+ 11");
+        }
+        if (cod == 3) {
+            jLabelSTR.setText("+ 5");
+            jLabelDEF.setText("+ 2");
+            jLabelAGI.setText("+ 3");
+            jLabelSOR.setText("+ 8");
+            jLabelSTR2.setText("+ 5");
+            jLabelDEF2.setText("+ 2");
+            jLabelAGI2.setText("+ 3");
+            jLabelSOR2.setText("+ 8");
+            jLabelSTR3.setText("+ 5");
+            jLabelDEF3.setText("+ 2");
+            jLabelAGI3.setText("+ 3");
+            jLabelSOR3.setText("+ 8");
+        }
+    }
 }

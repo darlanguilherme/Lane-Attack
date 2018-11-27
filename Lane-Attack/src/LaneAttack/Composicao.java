@@ -2,15 +2,19 @@ package LaneAttack;
 
 import br.ufsc.inf.leobr.cliente.Jogada;
 
-public class Composicao implements Jogada{
+public class Composicao implements Jogada {
 
-	protected Classe classe;
+    protected Classe classe;
 
-//	public void assumir(Classe classe) {
-//		return this.classe;
-//	}
+    public Composicao(Classe classe) {
+        this.classe = classe;
+    }
+    
+    public void setClasse(Classe classe) {
+        this.classe = classe;
+    }
 
-	public void setClasse(Classe classe) {
-		this.classe = classe;
-	}
+    public Classe getClasse() {
+        return classe;
+    }
 }
