@@ -7,6 +7,11 @@ public class Composicao implements Jogada {
     protected Classe classeJogador1;
     protected Classe classeJogador2;
 
+    public Composicao() {
+    }
+    
+    
+
     public Classe getClasseJogador1() {
         return classeJogador1;
     }

@@ -75,12 +75,10 @@ public class AtorNetGames implements OuvidorProxy {
 	@Override
 	public void receberJogada(Jogada jogada) {
             Composicao composicao = (Composicao) jogada;
-            atorJogador.receberJogada(jogada);
+            atorJogador.receberJogada(composicao);
 	}
 	
-	//////////////////////////////////////////////////////////////////////////////
-	
-	public boolean desconectar() {
+        public boolean desconectar() {
 		try {
 			proxy.desconectar();
 			return true;
@@ -90,8 +88,8 @@ public class AtorNetGames implements OuvidorProxy {
 			return false;
 		}
 	}
-
-	public String informarNomeAdversario(String idUsuario) {
+        
+        public String informarNomeAdversario(String idUsuario) {
 		String aux1 = proxy.obterNomeAdversario(new Integer(1));
 		String aux2 = proxy.obterNomeAdversario(new Integer(2));
 		if (aux1.equals(idUsuario)) {
@@ -100,6 +98,12 @@ public class AtorNetGames implements OuvidorProxy {
 			return aux1;
 		}
 	}
+        
+	//////////////////////////////////////////////////////////////////////////////
+	
+	
+
+	
 
 	@Override
 	public void finalizarPartidaComErro(String message) {

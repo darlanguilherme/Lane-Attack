@@ -7,8 +7,8 @@ public class Combate {
 		throw new UnsupportedOperationException();
 	}
 
-	public void tratarTurno(Composicao comp1,Composicao comp2) {
-		
-	}
+    void gerarResultado(Composicao composicao) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

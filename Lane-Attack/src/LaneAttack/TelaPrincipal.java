@@ -1,6 +1,7 @@
 
 package LaneAttack;
 
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
@@ -8,6 +9,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     protected AtorJogador atorJogador = AtorJogador.getInstance(this);
     protected boolean emRede = false;
+    protected Controle ctrl = Controle.getInstance();
     
     private javax.swing.JLabel cenario;
     private javax.swing.JLabel imagemJ1;
@@ -24,6 +26,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     public TelaPrincipal() {
         initComponents();
+        
         setVisible(true);
     }
     
@@ -43,7 +46,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 				JOptionPane.showMessageDialog(TelaPrincipal.this, "Erro ao conectar!", "Erro", JOptionPane.ERROR_MESSAGE);
 			}
 		} else if (event.getSource().equals(jMenuItem4)) {
-			setVisible(false);
+			AtorJogador.getInstance(this).desconectar();
 		}
 	};
     
@@ -154,11 +157,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 
                 
         );
+        setBackground(Color.blue);
         setResizable(false);
         pack();
     }
 
-    void realizarBatalha(){
-        
+
+    void informarComposicao(Composicao composicao) {
+        ctrl.setComposicao(composicao);
+    }
+
+    void informarInicioBatalha() {
+        imagemJ1.setVisible(false);
+//        ctrl.iniciarCombate();
     }
 }

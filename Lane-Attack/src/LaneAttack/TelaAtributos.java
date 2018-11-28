@@ -2,8 +2,13 @@ package LaneAttack;
 
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class TelaAtributos extends javax.swing.JFrame {
+
+    protected AtorJogador atorJogador;
+
+    protected int clas;
 
     private javax.swing.JTextField atk1;
     private javax.swing.JTextField atk2;
@@ -54,28 +59,72 @@ public class TelaAtributos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
 
     private ActionListener btManager = event -> {
-        if (event.getSource().equals(jButton1)) {
 
+        if (event.getSource().equals(jButton1)) {
+            if (!atorJogador.isVez()) {
+                exibirDialogoAguradarVez();
+                return;
+            }
+            informarComposicao();
         }
         if (imagemCavaleiro.isSelected()) {
+            if (!atorJogador.isVez()) {
+                exibirDialogoAguradarVez();
+                return;
+            }
             imagemFeiticeira.setSelected(false);
             imagemGoku.setSelected(false);
+            clas = 1;
             assumirEstado(1);
             setPoints(1);
         }
         if (imagemFeiticeira.isSelected()) {
+            if (!atorJogador.isVez()) {
+                exibirDialogoAguradarVez();
+                return;
+            }
             imagemGoku.setSelected(false);
+            clas = 2;
             assumirEstado(2);
             setPoints(2);
         }
         if (imagemGoku.isSelected()) {
+            if (!atorJogador.isVez()) {
+                exibirDialogoAguradarVez();
+                return;
+            }
+            clas = 3;
             assumirEstado(3);
             setPoints(3);
         }
+
     };
 
-    public TelaAtributos() {
+    private void exibirDialogoAguradarVez() {
+        JOptionPane.showMessageDialog(this, "Aguarde sua vez!");
+    }
+
+    private void informarComposicao() {
+        Composicao composicao = new Composicao();
+        atorJogador.enviarJogada(composicao);
+//    ctrl.criarPersonagens(clas,Integer.valueOf(atk1.getText()),
+//            Integer.valueOf(atk2.getText()),
+//            Integer.valueOf(atk3.getText()),
+//            Integer.valueOf(def1.getText()),
+//            Integer.valueOf(def2.getText()),
+//            Integer.valueOf(def3.getText()),
+//            Integer.valueOf(agi1.getText()),
+//            Integer.valueOf(agi2.getText()),
+//            Integer.valueOf(agi3.getText()),
+//            Integer.valueOf(sor1.getText()),
+//            Integer.valueOf(sor2.getText()),
+//            Integer.valueOf(sor3.getText())
+//            );
+    }
+
+    public TelaAtributos(AtorJogador atorJogador) {
         initComponents();
+        this.atorJogador = atorJogador;
     }
 
     private void initComponents() {
@@ -191,6 +240,7 @@ public class TelaAtributos extends javax.swing.JFrame {
         jLabel16.setText("Você tem 20 pontos para distribuir livremente entre os personagens");
 
         jButton1.setText("Enviar Composição");
+        jButton1.addActionListener(btManager);
 
         jLabelSTR.setFont(new java.awt.Font("Tahoma", 1, 13));
 
