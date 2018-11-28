@@ -74,7 +74,8 @@ public class AtorNetGames implements OuvidorProxy {
 	
 	@Override
 	public void receberJogada(Jogada jogada) {
-		atorJogador.receberJogada(jogada);
+            Composicao composicao = (Composicao) jogada;
+            atorJogador.receberJogada(jogada);
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////

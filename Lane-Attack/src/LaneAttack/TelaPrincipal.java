@@ -37,7 +37,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 			}
 		} else if (event.getSource().equals(jMenuItem3)) {
 			if (atorJogador.conectar(solicitarNomeDoJogador())) {
-				setVisible(false);
+				
 				JOptionPane.showMessageDialog(TelaPrincipal.this, "Conexão realizada com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 			} else {
 				JOptionPane.showMessageDialog(TelaPrincipal.this, "Erro ao conectar!", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -156,5 +156,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
         setResizable(false);
         pack();
+    }
+
+    void realizarBatalha(){
+        
     }
 }
