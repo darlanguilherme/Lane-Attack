@@ -21,7 +21,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     protected AtorJogador atorJogador = AtorJogador.getInstance(this);
     protected boolean emRede = false;
-    protected Controle ctrl = Controle.getInstance();
     
     
     private JMenuItem novaPartida;
@@ -53,6 +52,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setVisible(true);
     }
     
+    
     private ActionListener btManager = event -> {
         if (event.getSource().equals(novaPartida)) {
             if (!atorJogador.iniciarPartida()) {
@@ -83,13 +83,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
     
      void informarComposicao(Composicao composicao) {
-        ctrl.setComposicao(composicao);
+        atorJogador.ctrl.setComposicao(composicao);
     }
 
-    void informarInicioBatalha() {
-        imagemj1.setVisible(false);
-//        ctrl.iniciarCombate();
-    }
+   
 
     public void setPeronagens() throws IOException {
         personagem1 = new JImagePanel(100, new BufferedImage[] {
@@ -129,7 +126,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         personagem5 = new JImagePanel(loadImage("/home/darlan/eclipse-workspace/LANE2/Lane-Attack/src/Imagenss/FeiticeiraFrente1.png"));
         personagem6 = new JImagePanel(loadImage("/home/darlan/eclipse-workspace/LANE2/Lane-Attack/src/Imagenss/FeiticeiraFrente1.png"));
         
-        
+        novaPartida.addActionListener(btManager);
+        conectar.addActionListener(btManager);
+        desconectar.addActionListener(btManager);
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.Color.gray);
@@ -340,6 +339,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+     public void exibirDialogoVoceVenceu() {
+        JOptionPane.showMessageDialog(this, "PARABÊNS !!! Você venceu a partida!");
+    }
+     
+     public void exibirDialogoVoceVenceuRound() {
+        JOptionPane.showMessageDialog(this, "Você venceu o round!");
+    }
+     
+     public void exibirDialogoVocePerdeu() {
+        JOptionPane.showMessageDialog(this, "INFELIZMENTE você perdeu a partida");
+    }
+     
+     public void exibirDialogoVocePerdeuRound() {
+        JOptionPane.showMessageDialog(this, "Você perdeu o round!");
+    }
     
    
 }

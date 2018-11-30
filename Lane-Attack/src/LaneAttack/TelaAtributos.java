@@ -66,8 +66,7 @@ public class TelaAtributos extends javax.swing.JFrame {
                 return;
             }
             informarComposicao();
-        }
-        if (imagemCavaleiro.isSelected()) {
+        }else if (imagemCavaleiro.isSelected()) {
             if (!atorJogador.isVez()) {
                 exibirDialogoAguradarVez();
                 return;
@@ -77,8 +76,7 @@ public class TelaAtributos extends javax.swing.JFrame {
             clas = 1;
             assumirEstado(1);
             setPoints(1);
-        }
-        if (imagemFeiticeira.isSelected()) {
+        }else if (imagemFeiticeira.isSelected()) {
             if (!atorJogador.isVez()) {
                 exibirDialogoAguradarVez();
                 return;
@@ -87,8 +85,7 @@ public class TelaAtributos extends javax.swing.JFrame {
             clas = 2;
             assumirEstado(2);
             setPoints(2);
-        }
-        if (imagemGoku.isSelected()) {
+        }else if (imagemGoku.isSelected()) {
             if (!atorJogador.isVez()) {
                 exibirDialogoAguradarVez();
                 return;
@@ -105,9 +102,10 @@ public class TelaAtributos extends javax.swing.JFrame {
     }
 
     private void informarComposicao() {
+        
         Composicao composicao = new Composicao();
         atorJogador.enviarJogada(composicao);
-//    ctrl.criarPersonagens(clas,Integer.valueOf(atk1.getText()),
+//    criarPersonagens(clas,Integer.valueOf(atk1.getText()),
 //            Integer.valueOf(atk2.getText()),
 //            Integer.valueOf(atk3.getText()),
 //            Integer.valueOf(def1.getText()),
@@ -126,7 +124,7 @@ public class TelaAtributos extends javax.swing.JFrame {
         initComponents();
         this.atorJogador = atorJogador;
     }
-
+    
     private void initComponents() {
 
         imagemCavaleiro = new javax.swing.JToggleButton();

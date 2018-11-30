@@ -1,14 +1,15 @@
 package LaneAttack;
 
 import br.ufsc.inf.leobr.cliente.Jogada;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 
 public class AtorJogador {
 
     private static AtorJogador instance;
 
     private boolean vez;
-    protected String nomeDoJogador;
-    protected Controle map;
+    protected String idUsuario;
+    protected Controle ctrl;
     protected AtorNetGames rede = new AtorNetGames(this);
     protected TelaPrincipal telaPrincipal;
     protected TelaAtributos telaAtributos;
@@ -22,8 +23,73 @@ public class AtorJogador {
 
     public AtorJogador(TelaPrincipal TelaPrincipal) {
         this.telaPrincipal = TelaPrincipal;
+        ctrl = new Controle(this);
     }
 
+    
+    public void tratarInicio(int posicao) {
+        vez = (posicao == 1);
+
+        if (telaAtributos == null) {
+            telaAtributos = new TelaAtributos(this);
+        }
+        telaPrincipal.setVisible(false);
+        telaAtributos.setVisible(true);
+    }
+
+    
+    void iniciarNovoRound() {
+        ctrl.limparComposicao();
+        telaAtributos.setVisible(true);
+        telaPrincipal.setVisible(false);
+    }
+
+
+    public void enviarJogada(Composicao composicao) {
+        System.out.println("Enviei uma Jogada");
+        vez = false;
+        rede.enviarJogada(composicao);
+        ctrl.setComposicao(composicao);
+        if (true) {
+            System.out.println("Enviei uma Jogada e esta preenchida");
+            ctrl.meuId = 2;
+            ctrl.iniciarCombate();
+        }
+        
+    }
+
+    public void receberJogada(Composicao composicao) {
+        vez = true;
+        ctrl.setComposicao(composicao);
+        System.out.println("Recebi uma Jogada");
+        if (true) {
+            System.out.println("Recebi uma Jogada e está preenchida");
+            ctrl.meuId = 1;
+            ctrl.iniciarCombate();
+        }
+    }
+
+    public boolean isVez() {
+        return vez;
+    }
+
+    
+    void voceVenceu() {
+        telaPrincipal.exibirDialogoVoceVenceu();
+    }
+
+    void vocePerdeu() {
+        telaPrincipal.exibirDialogoVocePerdeu();
+    }
+
+    void voceVenceuRound() {
+        telaPrincipal.exibirDialogoVoceVenceuRound();
+    }
+
+    void vocePerdeuRound() {
+        telaPrincipal.exibirDialogoVocePerdeuRound();
+    }
+    
     public boolean conectar(String nome) {
         return rede.conectar(nome);
     }
@@ -36,7 +102,7 @@ public class AtorJogador {
         rede.setAguardandoJogador(true);
         return true;
     }
-
+    
     public TelaPrincipal informarJanela() {
         return telaPrincipal;
     }
@@ -44,50 +110,9 @@ public class AtorJogador {
     public boolean aguardandoJogador() {
         return rede.isAguardandoJogador();
     }
-
-    public void tratarInicio(int posicao) {
-        vez = (posicao == 1);
-        System.err.println("cheguei enviarjogada");
-        if (telaAtributos == null) {
-            telaAtributos = new TelaAtributos(this);
-        }
-        telaPrincipal.setVisible(false);
-        telaAtributos.setVisible(true);
-    }
-
+    
     public void desconectar() {
         rede.desconectar();
-    }
-
-    public void enviarJogada(Composicao composicao) {
-        rede.enviarJogada(composicao);
-        System.err.println("cheguei enviarjogada");
-//        if (composicao.estaPreenchido()) {
-//            telaPrincipal.informarInicioBatalha();
-//        }
-        vez = false;
-        telaAtributos.setVisible(false);
-        telaPrincipal.setVisible(true);
-        
-    }
-
-    public void receberJogada(Composicao composicao) {
-
-        System.err.println("cheguei receberJogada");
-//        telaPrincipal.informarComposicao(composicao);
-        vez = true;
-        telaAtributos.setVisible(true);
-        telaPrincipal.setVisible(false);
-//        if (composicao.estaPreenchido()) {
-//            telaPrincipal.informarInicioBatalha();
-//        } else {
-//            telaAtributos.setVisible(true);
-//            telaPrincipal.setVisible(false);
-//        }
-    }
-
-    public boolean isVez() {
-        return vez;
     }
 
 }
