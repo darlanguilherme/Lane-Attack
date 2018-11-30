@@ -89,29 +89,24 @@ public class AtorNetGames implements OuvidorProxy {
         }
     }
 
-    //////////////////////////////////////////////////////////////////////////////
     @Override
     public void finalizarPartidaComErro(String message) {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void receberMensagem(String msg) {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void tratarConexaoPerdida() {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void tratarPartidaNaoIniciada(String message) {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

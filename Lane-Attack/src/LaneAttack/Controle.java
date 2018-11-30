@@ -8,11 +8,7 @@ public class Controle {
 
     protected Composicao composicao;
 
-    protected Combate combate;
     protected AtorJogador atorJogador;
-    public Classe teste;
-    protected boolean partidaEmAndamento;
-    protected boolean conectado;
 
     public Controle(AtorJogador ator) {
 
@@ -23,7 +19,6 @@ public class Controle {
         meuId = 0;
         roundsAdvVencido = 0;
         roundsVencidos = 0;
-        combate = new Combate();
     }
 
     public int verificarVencedor() {
@@ -33,50 +28,6 @@ public class Controle {
             return 2;
         }
         return 0;
-    }
-
-    public boolean informarConectado() {
-        // TODO - implement Controle.informarConectado
-        throw new UnsupportedOperationException();
-    }
-
-    public void estabelecerConectado(boolean valor) {
-        // TODO - implement Controle.estabelecerConectado
-        throw new UnsupportedOperationException();
-    }
-
-    public boolean informarEmAndamento() {
-        // TODO - implement Controle.informarEmAndamento
-        throw new UnsupportedOperationException();
-    }
-
-    public void iniciar() {
-        // TODO - implement Controle.iniciar
-        throw new UnsupportedOperationException();
-    }
-
-    public void iniciarRound() {
-        // TODO - implement Controle.iniciarRound
-        throw new UnsupportedOperationException();
-    }
-
-    public void finalizarPartida() {
-        // TODO - implement Controle.finalizarPartida
-        throw new UnsupportedOperationException();
-    }
-
-    public void setComposicaoJ1(Composicao composicao) {
-        // TODO - implement Controle.setComposicaoJ1
-        throw new UnsupportedOperationException();
-    }
-
-    public void setComposicaoJ2(Composicao composicao) {
-        // TODO - implement Controle.setComposicaoJ2
-        throw new UnsupportedOperationException();
-    }
-
-    public void tratarRound() {
-
     }
 
     void setComposicao(Composicao composicao) {

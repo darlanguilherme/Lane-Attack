@@ -11,7 +11,6 @@ public class Classe implements Serializable {
 
     public Classe() {
         personagens = new Personagem[3];
-        
     }
     
     public int getPoderP1(){
@@ -26,10 +25,6 @@ public class Classe implements Serializable {
        return personagens[2].getPoder();
     }
     
-    public Personagem[] getPersonagens() {
-        return personagens;
-    }
-
     public void setPersonagens(Personagem[] personagens) {
         this.personagens = personagens;
     }
