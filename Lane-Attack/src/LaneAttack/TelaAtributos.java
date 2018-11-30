@@ -102,7 +102,6 @@ public class TelaAtributos extends javax.swing.JFrame {
     }
 
     public void getPersonagens() {
-        
 
             int atk11 = Integer.parseInt(atk1.getText());
             int def11 = Integer.parseInt(def1.getText());
