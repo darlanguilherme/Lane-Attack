@@ -135,17 +135,7 @@ public class Controle {
         }
     }
 
-    //    void criarJogador(String idJogador) {
-//    if (jogador1 == null){
-//			jogador1 = new Jogador();
-//			jogador1.iniciar();
-//			jogador1.assumirNome(idJogador);
-//		}else{
-//			jogador2 = new Jogador();
-//			jogador2.iniciar();
-//			jogador2.assumirNome(idJogador);			
-//		}    
-//    }
+   
     void limparComposicao() {
         this.composicao = null;
     }
