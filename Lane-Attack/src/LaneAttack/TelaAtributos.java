@@ -65,8 +65,8 @@ public class TelaAtributos extends javax.swing.JFrame {
                 exibirDialogoAguradarVez();
                 return;
             }
-            informarComposicao();
-        }else if (imagemCavaleiro.isSelected()) {
+            verificarJogada();
+        } else if (imagemCavaleiro.isSelected()) {
             if (!atorJogador.isVez()) {
                 exibirDialogoAguradarVez();
                 return;
@@ -74,57 +74,74 @@ public class TelaAtributos extends javax.swing.JFrame {
             imagemFeiticeira.setSelected(false);
             imagemGoku.setSelected(false);
             clas = 1;
-            assumirEstado(1);
-            setPoints(1);
-        }else if (imagemFeiticeira.isSelected()) {
+            assumirEstado(clas);
+            setPoints(clas);
+        } else if (imagemFeiticeira.isSelected()) {
             if (!atorJogador.isVez()) {
                 exibirDialogoAguradarVez();
                 return;
             }
             imagemGoku.setSelected(false);
             clas = 2;
-            assumirEstado(2);
-            setPoints(2);
-        }else if (imagemGoku.isSelected()) {
+            assumirEstado(clas);
+            setPoints(clas);
+        } else if (imagemGoku.isSelected()) {
             if (!atorJogador.isVez()) {
                 exibirDialogoAguradarVez();
                 return;
             }
             clas = 3;
-            assumirEstado(3);
-            setPoints(3);
+            assumirEstado(clas);
+            setPoints(clas);
         }
 
     };
 
-    private void exibirDialogoAguradarVez() {
-        JOptionPane.showMessageDialog(this, "Aguarde sua vez!");
+    public boolean verificarClasseSelecionado() {
+        return (clas != 0);
     }
 
-    private void informarComposicao() {
+    public void getPersonagens() {
         
-        Composicao composicao = new Composicao();
-        atorJogador.enviarJogada(composicao);
-//    criarPersonagens(clas,Integer.valueOf(atk1.getText()),
-//            Integer.valueOf(atk2.getText()),
-//            Integer.valueOf(atk3.getText()),
-//            Integer.valueOf(def1.getText()),
-//            Integer.valueOf(def2.getText()),
-//            Integer.valueOf(def3.getText()),
-//            Integer.valueOf(agi1.getText()),
-//            Integer.valueOf(agi2.getText()),
-//            Integer.valueOf(agi3.getText()),
-//            Integer.valueOf(sor1.getText()),
-//            Integer.valueOf(sor2.getText()),
-//            Integer.valueOf(sor3.getText())
-//            );
+
+            int atk11 = Integer.parseInt(atk1.getText());
+            int def11 = Integer.parseInt(def1.getText());
+            int agi11 = Integer.parseInt(agi1.getText());
+            int sor11 = Integer.parseInt(sor1.getText());
+
+            int atk22 = Integer.parseInt(atk2.getText());
+            int def22 = Integer.parseInt(def2.getText());
+            int agi22 = Integer.parseInt(agi2.getText());
+            int sor22 = Integer.parseInt(sor2.getText());
+
+            int atk33 = Integer.parseInt(atk3.getText());
+            int def33 = Integer.parseInt(def3.getText());
+            int agi33 = Integer.parseInt(agi3.getText());
+            int sor33 = Integer.parseInt(sor3.getText());
+            
+            atorJogador.ctrl.criarPersonagens(clas, atk11, atk22, atk33, def11, def22, def33, agi11, agi22, agi33, sor11, sor22, sor33);
+
+            
+           
+       
+
     }
+
+    public void verificarJogada() {
+        if (verificarClasseSelecionado()) {
+            getPersonagens();
+        } else {
+            System.out.print("é aqui1");
+            exibirDialogoVerificarJogada();
+        }
+    }
+
 
     public TelaAtributos(AtorJogador atorJogador) {
         initComponents();
         this.atorJogador = atorJogador;
     }
-    
+
     private void initComponents() {
 
         imagemCavaleiro = new javax.swing.JToggleButton();
@@ -544,4 +561,13 @@ public class TelaAtributos extends javax.swing.JFrame {
             jLabelSOR3.setText("+ 8");
         }
     }
+
+    private void exibirDialogoAguradarVez() {
+        JOptionPane.showMessageDialog(this, "Aguarde sua vez!");
+    }
+
+    private void exibirDialogoVerificarJogada() {
+        JOptionPane.showMessageDialog(this, "OPS, Verifique sua jogada!");
+    }
+
 }

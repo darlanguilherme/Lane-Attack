@@ -50,10 +50,11 @@ public class AtorJogador {
         vez = false;
         rede.enviarJogada(composicao);
         ctrl.setComposicao(composicao);
-        if (true) {
+        if (ctrl.composicao.estaPreenchido()) {
             System.out.println("Enviei uma Jogada e esta preenchida");
             ctrl.meuId = 2;
             ctrl.iniciarCombate();
+            ctrl.limparComposicao();
         }
         
     }
@@ -62,10 +63,11 @@ public class AtorJogador {
         vez = true;
         ctrl.setComposicao(composicao);
         System.out.println("Recebi uma Jogada");
-        if (true) {
+        if (ctrl.composicao.estaPreenchido()) {
             System.out.println("Recebi uma Jogada e está preenchida");
             ctrl.meuId = 1;
             ctrl.iniciarCombate();
+            ctrl.limparComposicao();
         }
     }
 
@@ -114,5 +116,10 @@ public class AtorJogador {
     public void desconectar() {
         rede.desconectar();
     }
+    
+
+   
+
+    
 
 }

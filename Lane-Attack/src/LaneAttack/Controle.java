@@ -10,11 +10,15 @@ public class Controle {
 
     protected Combate combate;
     protected AtorJogador atorJogador;
-
+    public Classe teste;
     protected boolean partidaEmAndamento;
     protected boolean conectado;
 
     public Controle(AtorJogador ator) {
+
+        if (composicao == null) {
+            composicao = new Composicao();
+        }
         atorJogador = ator;
         meuId = 0;
         roundsAdvVencido = 0;
@@ -29,10 +33,6 @@ public class Controle {
             return 2;
         }
         return 0;
-    }
-
-    public void criarComposicao(int v, int a, int d, int am, int s, int parameter) {
-
     }
 
     public boolean informarConectado() {
@@ -110,10 +110,10 @@ public class Controle {
         }
     }
 
-    void criarPersonagens(int clas, int parseInt, int parseInt0, int parseInt1, int parseInt2, int parseInt3, int parseInt4, int parseInt5, int parseInt6, int parseInt7, int parseInt8, int parseInt9, int parseInt10) {
-        Personagem personagem1 = new Personagem(clas, parseInt, parseInt2, parseInt5, parseInt8);
-        Personagem personagem2 = new Personagem(clas, parseInt0, parseInt3, parseInt6, parseInt9);
-        Personagem personagem3 = new Personagem(clas, parseInt1, parseInt4, parseInt7, parseInt10);
+    void criarPersonagens(int clas, int atk1, int atk2, int atk3, int parseInt2, int parseInt3, int parseInt4, int parseInt5, int parseInt6, int parseInt7, int parseInt8, int parseInt9, int parseInt10) {
+        Personagem personagem1 = new Personagem(clas, atk1, parseInt2, parseInt5, parseInt8);
+        Personagem personagem2 = new Personagem(clas, atk2, parseInt3, parseInt6, parseInt9);
+        Personagem personagem3 = new Personagem(clas, atk3, parseInt4, parseInt7, parseInt10);
 
         Personagem[] personagens = new Personagem[3];
         personagens[0] = personagem1;
@@ -124,19 +124,21 @@ public class Controle {
             composicao.classeJogador1 = new Classe();
             composicao.classeJogador1.setPersonagens(personagens);
 
+            System.out.print("CRIEI E ENVIEI1");
+
             atorJogador.enviarJogada(this.composicao);
         } else if (composicao.classeJogador2 == null) {
             composicao.classeJogador2 = new Classe();
             composicao.classeJogador2.setPersonagens(personagens);
 
-            atorJogador.enviarJogada(this.composicao);
-        } else {
+            System.out.print("CRIEI E ENVIEI2");
 
+            atorJogador.enviarJogada(this.composicao);
         }
+        meuId = 0;
     }
 
-   
     void limparComposicao() {
-        this.composicao = null;
+        this.composicao.limpar();
     }
 }
