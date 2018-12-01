@@ -4,17 +4,23 @@ package LaneAttack;
 import static LaneAttack.TelaPrincipal.loadImage;
 import com.towel.swing.img.JImagePanel;
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.LayoutStyle;
+import javax.swing.SwingConstants;
 
 
 public class TelaPrincipal extends javax.swing.JFrame {
@@ -23,27 +29,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     protected boolean emRede = false;
     
     
-    private JMenuItem novaPartida;
-    private JMenuItem conectar;
-    private JMenuItem desconectar;
+    private JMenuItem novaPartida, conectar, desconectar;
     
     private JLabel placarj1;
     private JLabel placarj2;
     
-    private javax.swing.JLabel imagemj1;
-    private javax.swing.JLabel imagemj2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JLabel nomej1;
-    private javax.swing.JLabel nomej2;
+    private JLabel imagemj1, imagemj2;
+
+    private JMenu jMenu1;
+    private JMenuBar jMenuBar1;
+    private JLabel nomej1, nomej2;
     
     private JImagePanel cenario;
-    private JImagePanel personagem1;
-    private JImagePanel personagem2;
-    private JImagePanel personagem3;
-    private JImagePanel personagem4;
-    private JImagePanel personagem5;
-    private JImagePanel personagem6;
+    private JImagePanel personagem1, personagem2, personagem3, personagem4, personagem5, personagem6;
     
 
     public TelaPrincipal() throws IOException {
@@ -82,17 +80,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         return nome;
     }
     
-     void informarComposicao(Composicao composicao) {
-        atorJogador.ctrl.setComposicao(composicao);
-    }
-
-   
-
     public void setPeronagens() throws IOException {
         personagem1 = new JImagePanel(100, new BufferedImage[] {
                 loadImage("/home/darlan/eclipse-workspace/LANE2/Lane-Attack/src/Imagenss/FeiticeiraFrente1.png"),
                 loadImage("/home/darlan/eclipse-workspace/LANE2/Lane-Attack/src/Imagenss/FeiticeiraFrente3.png")});
-        
         cenario.add(personagem1);
         
     }
@@ -132,145 +123,146 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.Color.gray);
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setCursor(new java.awt.Cursor(Cursor.DEFAULT_CURSOR));
 
-        cenario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cenario.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
         personagem5.setBorder(null);
+        
 
-        javax.swing.GroupLayout personagem5Layout = new javax.swing.GroupLayout(personagem5);
+        GroupLayout personagem5Layout = new GroupLayout(personagem5);
         personagem5.setLayout(personagem5Layout);
         personagem5Layout.setHorizontalGroup(
-            personagem5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            personagem5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 45, Short.MAX_VALUE)
         );
         personagem5Layout.setVerticalGroup(
-            personagem5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            personagem5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
         personagem2.setBorder(null);
         personagem2.setPreferredSize(new java.awt.Dimension(47, 47));
 
-        javax.swing.GroupLayout personagem2Layout = new javax.swing.GroupLayout(personagem2);
+        javax.swing.GroupLayout personagem2Layout = new GroupLayout(personagem2);
         personagem2.setLayout(personagem2Layout);
         personagem2Layout.setHorizontalGroup(
-            personagem2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            personagem2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 47, Short.MAX_VALUE)
         );
         personagem2Layout.setVerticalGroup(
-            personagem2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            personagem2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 47, Short.MAX_VALUE)
         );
 
         personagem4.setBorder(null);
 
-        javax.swing.GroupLayout personagem4Layout = new javax.swing.GroupLayout(personagem4);
+        javax.swing.GroupLayout personagem4Layout = new GroupLayout(personagem4);
         personagem4.setLayout(personagem4Layout);
         personagem4Layout.setHorizontalGroup(
-            personagem4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            personagem4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 46, Short.MAX_VALUE)
         );
         personagem4Layout.setVerticalGroup(
-            personagem4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            personagem4Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 49, Short.MAX_VALUE)
         );
 
         personagem1.setBorder(null);
 
-        javax.swing.GroupLayout personagem1Layout = new javax.swing.GroupLayout(personagem1);
+        javax.swing.GroupLayout personagem1Layout = new GroupLayout(personagem1);
         personagem1.setLayout(personagem1Layout);
         personagem1Layout.setHorizontalGroup(
-            personagem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            personagem1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 47, Short.MAX_VALUE)
         );
         personagem1Layout.setVerticalGroup(
-            personagem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            personagem1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
         personagem6.setBorder(null);
 
-        javax.swing.GroupLayout personagem6Layout = new javax.swing.GroupLayout(personagem6);
+        javax.swing.GroupLayout personagem6Layout = new GroupLayout(personagem6);
         personagem6.setLayout(personagem6Layout);
         personagem6Layout.setHorizontalGroup(
-            personagem6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            personagem6Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 47, Short.MAX_VALUE)
         );
         personagem6Layout.setVerticalGroup(
-            personagem6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            personagem6Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 49, Short.MAX_VALUE)
         );
 
         personagem3.setBorder(null);
 
-        javax.swing.GroupLayout personagem3Layout = new javax.swing.GroupLayout(personagem3);
+        javax.swing.GroupLayout personagem3Layout = new GroupLayout(personagem3);
         personagem3.setLayout(personagem3Layout);
         personagem3Layout.setHorizontalGroup(
-            personagem3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            personagem3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 47, Short.MAX_VALUE)
         );
         personagem3Layout.setVerticalGroup(
-            personagem3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            personagem3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout cenarioLayout = new javax.swing.GroupLayout(cenario);
+        javax.swing.GroupLayout cenarioLayout = new GroupLayout(cenario);
         cenario.setLayout(cenarioLayout);
         cenarioLayout.setHorizontalGroup(
-            cenarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            cenarioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(cenarioLayout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addGroup(cenarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(personagem4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(personagem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(personagem4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(personagem1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addGap(142, 142, 142)
-                .addGroup(cenarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(personagem5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(personagem2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(cenarioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(personagem5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(personagem2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addGap(103, 103, 103)
-                .addGroup(cenarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(personagem6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(personagem3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(cenarioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(personagem6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(personagem3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         cenarioLayout.setVerticalGroup(
-            cenarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            cenarioLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(cenarioLayout.createSequentialGroup()
                 .addGap(153, 153, 153)
-                .addGroup(cenarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(personagem6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(personagem4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(personagem5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(cenarioLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                    .addComponent(personagem6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(personagem4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(personagem5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(59, 59, 59)
                 .addGroup(cenarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(personagem2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(personagem1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(personagem3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(personagem2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(personagem1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(personagem3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(65, 65, 65))
         );
 
-        imagemj1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imagemj1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        imagemj1.setHorizontalAlignment(SwingConstants.CENTER);
+        imagemj1.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
-        imagemj2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imagemj2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        imagemj2.setHorizontalAlignment(SwingConstants.CENTER);
+        imagemj2.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
-        placarj1.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        placarj1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        placarj1.setFont(new Font("Ubuntu", 0, 24)); 
+        placarj1.setHorizontalAlignment(SwingConstants.CENTER);
         placarj1.setText("0");
 
-        placarj2.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        placarj2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        placarj2.setFont(new Font("Ubuntu", 0, 24)); 
+        placarj2.setHorizontalAlignment(SwingConstants.CENTER);
         placarj2.setText("0");
 
-        nomej1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        nomej1.setFont(new Font("Ubuntu", 1, 15)); 
         nomej1.setText("nomeJogador");
 
-        nomej2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        nomej2.setFont(new Font("Ubuntu", 1, 15)); 
         nomej2.setText("nomeJogador");
 
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jMenuBar1.setBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jMenuBar1.setVerifyInputWhenFocusTarget(false);
 
         jMenu1.setText("JOGO");
@@ -289,24 +281,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setJMenuBar(jMenuBar1);
         jMenuBar1.getAccessibleContext().setAccessibleDescription("");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cenario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cenario, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(127, 127, 127)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(nomej1))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(imagemj1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(imagemj2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                        .addComponent(imagemj1, GroupLayout.PREFERRED_SIZE, 0, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(imagemj2, GroupLayout.PREFERRED_SIZE, 0, GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(70, 70, 70)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addComponent(placarj1)
                             .addComponent(placarj2)))
                     .addGroup(layout.createSequentialGroup()
@@ -315,29 +307,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(nomej1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(imagemj1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(placarj1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nomej1, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(imagemj1, GroupLayout.PREFERRED_SIZE, 151, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(placarj1, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
-                .addComponent(nomej2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(imagemj2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(placarj2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nomej2, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(imagemj2, GroupLayout.PREFERRED_SIZE, 151, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(placarj2, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cenario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cenario, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     
      public void exibirDialogoVoceVenceu() {
