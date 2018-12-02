@@ -2,70 +2,46 @@ package LaneAttack;
 
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JToggleButton;
 
-public class TelaAtributos extends javax.swing.JFrame {
+public class TelaAtributos extends JFrame {
 
     protected AtorJogador atorJogador;
 
     protected int clas;
 
-    private javax.swing.JTextField atk1;
-    private javax.swing.JTextField atk2;
-    private javax.swing.JTextField atk3;
-    private javax.swing.JTextField def1;
-    private javax.swing.JTextField def2;
-    private javax.swing.JTextField def3;
-    private javax.swing.JTextField agi1;
-    private javax.swing.JTextField agi2;
-    private javax.swing.JTextField agi3;
-    private javax.swing.JTextField sor1;
-    private javax.swing.JTextField sor2;
-    private javax.swing.JTextField sor3;
-    private javax.swing.JToggleButton imagemCavaleiro;
-    private javax.swing.JToggleButton imagemFeiticeira;
-    private javax.swing.JToggleButton imagemGoku;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabelSTR;
-    private javax.swing.JLabel jLabelDEF;
-    private javax.swing.JLabel jLabelAGI;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelSOR;
-    private javax.swing.JLabel jLabelDEF2;
-    private javax.swing.JLabel jLabelAGI2;
-    private javax.swing.JLabel jLabelSOR2;
-    private javax.swing.JLabel jLabelSTR2;
-    private javax.swing.JLabel jLabelDEF3;
-    private javax.swing.JLabel jLabelAGI3;
-    private javax.swing.JLabel jLabelSOR3;
-    private javax.swing.JLabel jLabelSTR3;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private JTextField atk1, atk2, atk3, def1, def2, def3, agi1, agi2, agi3, sor1, sor2, sor3;
+    private JToggleButton imagemCavaleiro, imagemFeiticeira, imagemGoku;
+    private JButton jButton1;
+    private JLabel jLabel1, jLabel10, jLabel11, jLabel12, jLabel13, jLabel14,
+            jLabel15, jLabel16, jLabel30, jLabel31, jLabelSTR, jLabelDEF,
+            jLabelAGI, jLabel2, jLabelSOR, jLabelDEF2, jLabelAGI2, jLabel29,
+            jLabelSOR2, jLabelSTR2, jLabelDEF3, jLabelAGI3, jLabelSOR3,
+            jLabelSTR3, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jLabel9;
 
-    private ActionListener btManager = event -> {
+    private ActionListener btManager  = event  -> {
 
-        if (event.getSource().equals(jButton1)) {
+        if (event.getSource().equals(jButton1))  {
+
             if (!atorJogador.isVez()) {
                 exibirDialogoAguradarVez();
                 return;
             }
-            verificarJogada();
+            if (!verificarPontos()) {
+                exibirDialogoPontosExcedidos();
+                return;
+            }
+            try {
+            verificarJogada() ;    
+            } catch (Exception e) {
+                System.err.println("Erro !");
+            }
+            
         } else if (imagemCavaleiro.isSelected()) {
             if (!atorJogador.isVez()) {
                 exibirDialogoAguradarVez();
@@ -97,36 +73,72 @@ public class TelaAtributos extends javax.swing.JFrame {
 
     };
 
+    public void verificarClasses() {
+        if (clas == 1) {
+            imagemFeiticeira.setEnabled(false);
+            imagemGoku.setEnabled(false);
+        }
+        if (clas == 2) {
+            imagemCavaleiro.setEnabled(false);
+            imagemGoku.setEnabled(false);
+        }
+        if (clas == 3) {
+            imagemCavaleiro.setEnabled(false);
+            imagemFeiticeira.setEnabled(false);
+        }
+    }
+
     public boolean verificarClasseSelecionado() {
         return (clas != 0);
     }
 
-    public void getPersonagens() {
+    public boolean verificarPontos() {
+        int atk11 = Integer.parseInt(atk1.getText());
+        int def11 = Integer.parseInt(def1.getText());
+        int agi11 = Integer.parseInt(agi1.getText());
+        int sor11 = Integer.parseInt(sor1.getText());
 
-            int atk11 = Integer.parseInt(atk1.getText());
-            int def11 = Integer.parseInt(def1.getText());
-            int agi11 = Integer.parseInt(agi1.getText());
-            int sor11 = Integer.parseInt(sor1.getText());
+        int atk22 = Integer.parseInt(atk2.getText());
+        int def22 = Integer.parseInt(def2.getText());
+        int agi22 = Integer.parseInt(agi2.getText());
+        int sor22 = Integer.parseInt(sor2.getText());
 
-            int atk22 = Integer.parseInt(atk2.getText());
-            int def22 = Integer.parseInt(def2.getText());
-            int agi22 = Integer.parseInt(agi2.getText());
-            int sor22 = Integer.parseInt(sor2.getText());
+        int atk33 = Integer.parseInt(atk3.getText());
+        int def33 = Integer.parseInt(def3.getText());
+        int agi33 = Integer.parseInt(agi3.getText());
+        int sor33 = Integer.parseInt(sor3.getText());
 
-            int atk33 = Integer.parseInt(atk3.getText());
-            int def33 = Integer.parseInt(def3.getText());
-            int agi33 = Integer.parseInt(agi3.getText());
-            int sor33 = Integer.parseInt(sor3.getText());
-            
-            atorJogador.ctrl.criarPersonagens(clas, atk11, atk22, atk33, def11, def22, def33, agi11, agi22, agi33, sor11, sor22, sor33);
+        if (atk11 + def11 + agi11 + sor11 <= 20
+                && atk22 + def22 + agi22 + sor22 <= 20
+                && atk33 + def33 + agi33 + sor33 <= 20) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-            
-           
-       
+    public void getPersonagens() throws InterruptedException {
+
+        int atk11 = Integer.parseInt(atk1.getText());
+        int def11 = Integer.parseInt(def1.getText());
+        int agi11 = Integer.parseInt(agi1.getText());
+        int sor11 = Integer.parseInt(sor1.getText());
+
+        int atk22 = Integer.parseInt(atk2.getText());
+        int def22 = Integer.parseInt(def2.getText());
+        int agi22 = Integer.parseInt(agi2.getText());
+        int sor22 = Integer.parseInt(sor2.getText());
+
+        int atk33 = Integer.parseInt(atk3.getText());
+        int def33 = Integer.parseInt(def3.getText());
+        int agi33 = Integer.parseInt(agi3.getText());
+        int sor33 = Integer.parseInt(sor3.getText());
+
+        atorJogador.ctrl.criarPersonagens(clas, atk11, atk22, atk33, def11, def22, def33, agi11, agi22, agi33, sor11, sor22, sor33);
 
     }
 
-    public void verificarJogada() {
+    public void verificarJogada() throws InterruptedException  {
         if (verificarClasseSelecionado()) {
             getPersonagens();
         } else {
@@ -134,7 +146,6 @@ public class TelaAtributos extends javax.swing.JFrame {
             exibirDialogoVerificarJogada();
         }
     }
-
 
     public TelaAtributos(AtorJogador atorJogador) {
         initComponents();
@@ -566,7 +577,11 @@ public class TelaAtributos extends javax.swing.JFrame {
     }
 
     private void exibirDialogoVerificarJogada() {
-        JOptionPane.showMessageDialog(this, "OPS, Verifique sua jogada!");
+
+    }
+
+    private void exibirDialogoPontosExcedidos() {
+        JOptionPane.showMessageDialog(this, "OPS, Pontos demais em pelo menos algum dos personagens!");
     }
 
 }

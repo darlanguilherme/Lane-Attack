@@ -59,16 +59,4 @@ public class Composicao implements Jogada {
 
     }
 
-    public void setClasse() {
-
-    }
-
-    public Classe getClasseJogador1() {
-        return classeJogador1;
-    }
-
-    public Classe getClasseJogador2() {
-        return classeJogador2;
-    }
-
 }

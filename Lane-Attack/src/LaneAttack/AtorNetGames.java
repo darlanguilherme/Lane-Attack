@@ -5,6 +5,8 @@ import br.ufsc.inf.leobr.cliente.OuvidorProxy;
 import br.ufsc.inf.leobr.cliente.Proxy;
 import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
 import br.ufsc.inf.leobr.cliente.exception.NaoJogandoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class AtorNetGames implements OuvidorProxy {
@@ -55,6 +57,16 @@ public class AtorNetGames implements OuvidorProxy {
             e.printStackTrace();
         }
     }
+    
+    public String informarNomeAdversario(String idUsuario) {
+		String aux1 = proxy.obterNomeAdversario(new Integer(1));
+		String aux2 = proxy.obterNomeAdversario(new Integer(2));;
+		if (aux1.equals(idUsuario)){
+			return aux2;
+		} else {
+			return aux1;
+		}		
+}
 
     public boolean isConectado() {
         return conectado;
@@ -75,7 +87,11 @@ public class AtorNetGames implements OuvidorProxy {
     @Override
     public void receberJogada(Jogada jogada) {
         Composicao composicao = (Composicao) jogada;
-        atorJogador.receberJogada(composicao);
+        try {
+            atorJogador.receberJogada(composicao);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(AtorNetGames.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public boolean desconectar() {

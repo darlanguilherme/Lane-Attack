@@ -34,7 +34,11 @@ public class Controle {
         this.composicao = composicao;
     }
 
-    void iniciarCombate() {
+    void iniciarCombate() throws InterruptedException {
+        atorJogador.telaAtributos.setVisible(false);
+        atorJogador.telaPrincipal.setVisible(true);
+        Thread.sleep(10000);
+        
         if (composicao.getVencedor() == 1 && meuId == 1) {
             roundsVencidos += 1;
             atorJogador.voceVenceuRound();
@@ -50,18 +54,21 @@ public class Controle {
         switch (verificarVencedor()) {
             case 1:
                 atorJogador.voceVenceu();
+                atorJogador.resetJogo();
                 break;
 
             case 2:
                 atorJogador.vocePerdeu();
+                atorJogador.resetJogo();
                 break;
 
             case 0:
                 atorJogador.iniciarNovoRound();
         }
+        
     }
 
-    void criarPersonagens(int clas, int atk1, int atk2, int atk3, int parseInt2, int parseInt3, int parseInt4, int parseInt5, int parseInt6, int parseInt7, int parseInt8, int parseInt9, int parseInt10) {
+    void criarPersonagens(int clas, int atk1, int atk2, int atk3, int parseInt2, int parseInt3, int parseInt4, int parseInt5, int parseInt6, int parseInt7, int parseInt8, int parseInt9, int parseInt10) throws InterruptedException {
         Personagem personagem1 = new Personagem(clas, atk1, parseInt2, parseInt5, parseInt8);
         Personagem personagem2 = new Personagem(clas, atk2, parseInt3, parseInt6, parseInt9);
         Personagem personagem3 = new Personagem(clas, atk3, parseInt4, parseInt7, parseInt10);
