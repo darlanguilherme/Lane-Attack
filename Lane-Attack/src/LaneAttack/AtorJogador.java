@@ -1,6 +1,7 @@
 package LaneAttack;
 
 import br.ufsc.inf.leobr.cliente.Jogada;
+import java.io.IOException;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 
 public class AtorJogador {
@@ -47,9 +48,9 @@ public class AtorJogador {
     }
     
      void resetJogo() {
-         telaAtributos.setVisible(false);
-        telaPrincipal.setVisible(true);
-         telaAtributos.dispose();
+         ctrl.limparComposicao();
+         ctrl.limparControle();
+         telaAtributos.limparTela();
          desconectar();
     }
 

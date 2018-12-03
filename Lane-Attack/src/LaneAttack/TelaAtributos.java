@@ -24,9 +24,9 @@ public class TelaAtributos extends JFrame {
             jLabelSOR2, jLabelSTR2, jLabelDEF3, jLabelAGI3, jLabelSOR3,
             jLabelSTR3, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jLabel9;
 
-    private ActionListener btManager  = event  -> {
+    private ActionListener btManager = event -> {
 
-        if (event.getSource().equals(jButton1))  {
+        if (event.getSource().equals(jButton1)) {
 
             if (!atorJogador.isVez()) {
                 exibirDialogoAguradarVez();
@@ -37,11 +37,11 @@ public class TelaAtributos extends JFrame {
                 return;
             }
             try {
-            verificarJogada() ;    
+                verificarJogada();
             } catch (Exception e) {
                 System.err.println("Erro !");
             }
-            
+
         } else if (imagemCavaleiro.isSelected()) {
             if (!atorJogador.isVez()) {
                 exibirDialogoAguradarVez();
@@ -73,6 +73,25 @@ public class TelaAtributos extends JFrame {
 
     };
 
+    void limparTela() {
+        this.clas = 0;
+        imagemFeiticeira.setEnabled(true);
+        imagemGoku.setEnabled(true);
+        imagemCavaleiro.setEnabled(true);
+        atk1.setText("");
+        def1.setText("");
+        agi1.setText("");
+        sor1.setText("");
+        atk2.setText("");
+        def2.setText("");
+        agi2.setText("");
+        sor2.setText("");
+        atk3.setText("");
+        def3.setText("");
+        agi3.setText("");
+        sor3.setText("");
+    }
+
     public void verificarClasses() {
         if (clas == 1) {
             imagemFeiticeira.setEnabled(false);
@@ -93,28 +112,33 @@ public class TelaAtributos extends JFrame {
     }
 
     public boolean verificarPontos() {
-        int atk11 = Integer.parseInt(atk1.getText());
-        int def11 = Integer.parseInt(def1.getText());
-        int agi11 = Integer.parseInt(agi1.getText());
-        int sor11 = Integer.parseInt(sor1.getText());
+        try {
+            int atk11 = Integer.parseInt(atk1.getText());
+            int def11 = Integer.parseInt(def1.getText());
+            int agi11 = Integer.parseInt(agi1.getText());
+            int sor11 = Integer.parseInt(sor1.getText());
 
-        int atk22 = Integer.parseInt(atk2.getText());
-        int def22 = Integer.parseInt(def2.getText());
-        int agi22 = Integer.parseInt(agi2.getText());
-        int sor22 = Integer.parseInt(sor2.getText());
+            int atk22 = Integer.parseInt(atk2.getText());
+            int def22 = Integer.parseInt(def2.getText());
+            int agi22 = Integer.parseInt(agi2.getText());
+            int sor22 = Integer.parseInt(sor2.getText());
 
-        int atk33 = Integer.parseInt(atk3.getText());
-        int def33 = Integer.parseInt(def3.getText());
-        int agi33 = Integer.parseInt(agi3.getText());
-        int sor33 = Integer.parseInt(sor3.getText());
-
-        if (atk11 + def11 + agi11 + sor11 <= 20
-                && atk22 + def22 + agi22 + sor22 <= 20
-                && atk33 + def33 + agi33 + sor33 <= 20) {
-            return true;
-        } else {
-            return false;
+            int atk33 = Integer.parseInt(atk3.getText());
+            int def33 = Integer.parseInt(def3.getText());
+            int agi33 = Integer.parseInt(agi3.getText());
+            int sor33 = Integer.parseInt(sor3.getText());
+            if (atk11 + def11 + agi11 + sor11 <= 20
+                    && atk22 + def22 + agi22 + sor22 <= 20
+                    && atk33 + def33 + agi33 + sor33 <= 20) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            System.err.println("erro");
         }
+        return false;
+
     }
 
     public void getPersonagens() throws InterruptedException {
@@ -138,11 +162,10 @@ public class TelaAtributos extends JFrame {
 
     }
 
-    public void verificarJogada() throws InterruptedException  {
+    public void verificarJogada() throws InterruptedException {
         if (verificarClasseSelecionado()) {
             getPersonagens();
         } else {
-            System.out.print("é aqui1");
             exibirDialogoVerificarJogada();
         }
     }
@@ -577,11 +600,11 @@ public class TelaAtributos extends JFrame {
     }
 
     private void exibirDialogoVerificarJogada() {
-
+        JOptionPane.showMessageDialog(this, "Verifique sua jogada!");
     }
 
     private void exibirDialogoPontosExcedidos() {
-        JOptionPane.showMessageDialog(this, "OPS, Pontos demais em pelo menos algum dos personagens!");
+        JOptionPane.showMessageDialog(this, "OPS, Verifique os pontos de atributo!");
     }
 
 }

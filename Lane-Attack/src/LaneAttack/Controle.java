@@ -21,6 +21,12 @@ public class Controle {
         roundsVencidos = 0;
     }
 
+    void limparControle(){
+        this.meuId = 0;
+        this.roundsAdvVencido = 0;
+        this.roundsVencidos = 0;
+    }
+    
     public int verificarVencedor() {
         if (roundsVencidos >= 2) {
             return 1;
@@ -39,14 +45,11 @@ public class Controle {
         atorJogador.telaPrincipal.setVisible(true);
         Thread.sleep(10000);
         
-        if (composicao.getVencedor() == 1 && meuId == 1) {
+        if (composicao.getVencedor() == meuId ) {
             roundsVencidos += 1;
             atorJogador.voceVenceuRound();
 
-        } else if (composicao.getVencedor() == 2 && meuId == 2) {
-            roundsVencidos += 1;
-            atorJogador.voceVenceuRound();
-        } else {
+        }  else {
             roundsAdvVencido += 1;
             atorJogador.vocePerdeuRound();
         }
@@ -82,14 +85,11 @@ public class Controle {
             composicao.classeJogador1 = new Classe();
             composicao.classeJogador1.setPersonagens(personagens);
 
-            System.out.print("CRIEI E ENVIEI1");
 
             atorJogador.enviarJogada(this.composicao);
         } else if (composicao.classeJogador2 == null) {
             composicao.classeJogador2 = new Classe();
             composicao.classeJogador2.setPersonagens(personagens);
-
-            System.out.print("CRIEI E ENVIEI2");
 
             atorJogador.enviarJogada(this.composicao);
         }
