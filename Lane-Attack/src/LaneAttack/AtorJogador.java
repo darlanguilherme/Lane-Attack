@@ -10,7 +10,6 @@ public class AtorJogador {
 
     private boolean vez;
     protected Controle ctrl;
-    
     private String idJogador;
     
     protected AtorNetGames rede = new AtorNetGames(this);
