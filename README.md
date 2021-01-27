@@ -1,10 +1,9 @@
 ## Descrição
 
-Jogo implementado para disciplina Análise e Projeto de Sistemas (UFSC).
-
+Jogo implementado para disciplina Análise e Projeto de Sistemas (UFSC)
 LaneAttack v1.0
-Release Notes
 
+Release Notes
 Darlan Guilherme Rosa
 
 ## Sumário
@@ -13,6 +12,7 @@ Darlan Guilherme Rosa
 2. [Versão atual e seus aspectos](#version)
 3. [Restrições do Jogo na versão atual](#att)
 <div id="install">
+	
 1. Instalação e execução
 
 	Não é necessário instalar o jogo para que ele seja executado.
@@ -34,11 +34,13 @@ Darlan Guilherme Rosa
 	Após a execução desse comando o jogo será iniciado. É necessária uma conexão com a internet para jogar com outros usuários em rede.
 </div>
 <div id="version">
+	
 2. Versão atual e seus aspectos
 
 	O jogo se encontra em sua primeira versão, já com uma interface amigável e intuitiva. Que visa o fácil entendimento do jogo e suas regras.
 </div>
 <div id="att">
+	
 3. Restrições do Jogo na versão atual
 
 	A versão atual ainda não está com a tela Principal terminada, que seria onde acontecem a batalha, ao invés está sendo mostrado apenas o resultado de cada round.
