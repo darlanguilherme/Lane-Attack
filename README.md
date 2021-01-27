@@ -9,10 +9,10 @@ Darlan Guilherme Rosa
 
 ## Sumário
 
-1. Instalação e Execução
+1. [Instalação e Execução](#inst-exec)
 2. Versão atual e seus aspectos
 3. Restrições do Jogo na versão atual
-
+<div id="inst-exec">
 ## 1. Instalação e execução
 
 	Não é necessário instalar o jogo para que ele seja executado.
@@ -32,7 +32,7 @@ Darlan Guilherme Rosa
 
 
 	Após a execução desse comando o jogo será iniciado. É necessária uma conexão com a internet para jogar com outros usuários em rede.
-
+</div>
 ## 2. Versão atual e seus aspectos
 
 	O jogo se encontra em sua primeira versão, já com uma interface amigável e intuitiva. Que visa o fácil entendimento do jogo e suas regras.
