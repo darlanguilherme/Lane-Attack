@@ -1,6 +1,6 @@
 ==================================================================
 
-Descrição
+##Descrição
 
 Jogo implementado para disciplina Análise e Projeto de Sistemas (UFSC).
 
